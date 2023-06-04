@@ -1,11 +1,15 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import styles from "@/styles/Home.module.scss";
+import Head from "next/head";
 
 export default function Home() {
    return (
-      <div>
-         <h1>Moreira Pizzas</h1>
-      </div>
+      <>
+         <Head>
+            <title>Moreira Pizzas - Faça seu login</title>
+         </Head>
+         <div>
+            <h1>Moreira Pizzas</h1>
+         </div>
+      </>
    );
 }
