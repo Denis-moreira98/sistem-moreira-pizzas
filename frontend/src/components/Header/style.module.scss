@@ -3,10 +3,10 @@
 }
 
 .headerContent {
-   max-width: 1120px;
-   height: 5rem;
+   max-width: 1600px;
+   height: 6rem;
    margin: auto;
-   padding: 0 2rem;
+   padding: 0 2.5rem;
 
    display: flex;
    justify-content: space-between;
@@ -42,7 +42,7 @@
       margin-left: 2rem;
       background-color: transparent;
       border: 0;
-      transition: scale 0.8s;
+      transition: all 0.8s;
 
       &:hover {
          transform: scale(1.2);
