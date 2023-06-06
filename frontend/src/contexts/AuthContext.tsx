@@ -1,5 +1,4 @@
-import { promises } from "dns";
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useState, useEffect } from "react";
 import { destroyCookie, setCookie, parseCookies } from "nookies";
 import Router from "next/router";
 import { api } from "../services/apiClient";
@@ -49,6 +48,29 @@ export function AuthProvider({ children }: AuthProviderProps) {
    const [user, setUser] = useState<UserProps>();
 
    const isAuthenticated = !!user;
+
+   useEffect(() => {
+      //TENTAR PEGAR ALGO DO TOKEN NO COOKIES
+
+      const { "@nextauth.token": token } = parseCookies();
+      if (token) {
+         api.get("/me")
+            .then((Response) => {
+               const { id, name, email } = Response.data;
+
+               setUser({
+                  id,
+                  name,
+                  email,
+               });
+            })
+            .catch(() => {
+               // Caiu aqui é porque o token não foi validado
+               // então deslogamos o user
+               signOut();
+            });
+      }
+   }, []);
 
    async function signIn({ email, password }: SignInProps) {
       try {

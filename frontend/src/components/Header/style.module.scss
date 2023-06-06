@@ -1,0 +1,51 @@
+.headerContainer {
+   max-height: 5rem;
+}
+
+.headerContent {
+   max-width: 1120px;
+   height: 5rem;
+   margin: auto;
+   padding: 0 2rem;
+
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   img {
+      cursor: pointer;
+   }
+}
+
+.menuNav {
+   display: flex;
+   align-items: center;
+
+   a {
+      color: var(--white);
+      padding: 0 0.5rem;
+      display: inline-block;
+      position: relative;
+      transition: color 0.7s;
+      font-weight: bold;
+
+      & a + {
+         margin-left: 2rem;
+      }
+
+      &:hover {
+         color: var(--red-900);
+      }
+   }
+
+   button {
+      margin-left: 2rem;
+      background-color: transparent;
+      border: 0;
+      transition: scale 0.8s;
+
+      &:hover {
+         transform: scale(1.2);
+      }
+   }
+}
