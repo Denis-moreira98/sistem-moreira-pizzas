@@ -1,4 +1,4 @@
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, FormEvent } from "react";
 import Head from "next/head";
 import styles from "./style.module.scss";
 import { Header } from "@/components/Header";
@@ -7,9 +7,29 @@ import { canSSRAuth } from "../../utils/canSSRAuth";
 
 import { FiUpload } from "react-icons/fi";
 
-export default function Product() {
+import { setupAPIClient } from "../../services/api";
+
+import { toast } from "react-toastify";
+
+type ItemProps = {
+   id: string;
+   name: string;
+};
+
+interface categoryProps {
+   categoryList: ItemProps[];
+}
+
+export default function Product({ categoryList }: categoryProps) {
+   const [name, setName] = useState("");
+   const [price, setPrice] = useState("");
+   const [description, setDescription] = useState("");
+
    const [avatarUrl, setAvatarUrl] = useState("");
    const [imageAvatar, setImageAvatar] = useState(null);
+
+   const [categories, setCategories] = useState(categoryList || []);
+   const [categorySelected, setCategorySelected] = useState("");
 
    function handleFile(e: ChangeEvent<HTMLInputElement>) {
       if (!e.target.files) {
@@ -26,6 +46,49 @@ export default function Product() {
       }
    }
 
+   //Quando você seleciona uma nova categoria na lista
+   function handleCategoriesSelected(event) {
+      setCategorySelected(event.target.value);
+   }
+
+   async function handleRegister(event: FormEvent) {
+      event.preventDefault();
+
+      try {
+         const data = new FormData();
+
+         if (
+            name === "" ||
+            price === "" ||
+            description === "" ||
+            imageAvatar === null
+         ) {
+            toast.warning("preencha todos os campos");
+            return;
+         }
+
+         data.append("name", name);
+         data.append("price", price);
+         data.append("description", description);
+         data.append("category_id", categories[categorySelected].id);
+         data.append("file", imageAvatar);
+
+         const apiClient = setupAPIClient();
+         await apiClient.post("/product", data);
+
+         toast.success("Cadastrado com sucesso!");
+      } catch (err) {
+         console.log(err);
+         toast.error("Ops, erro ao cadastrar");
+      }
+      setName("");
+      setPrice("");
+      setDescription("");
+      setImageAvatar("");
+      setImageAvatar(null);
+      setAvatarUrl("");
+   }
+
    return (
       <>
          <Head>
@@ -36,7 +99,7 @@ export default function Product() {
             <main className={styles.container}>
                <h1>Novo Produto</h1>
 
-               <form className={styles.form}>
+               <form className={styles.form} onSubmit={handleRegister}>
                   <label className={styles.labelAvatar}>
                      <span>
                         <FiUpload size={30} color="#FFF" />
@@ -58,22 +121,37 @@ export default function Product() {
                      )}
                   </label>
 
-                  <select>
-                     <option>Bebidas</option>
-                     <option>Pizzas</option>
+                  <select
+                     value={categorySelected}
+                     onChange={handleCategoriesSelected}
+                  >
+                     <option value={undefined}>Selecione uma categoria</option>
+                     {categories.map((item, index) => {
+                        return (
+                           <option key={item.id} value={index}>
+                              {item.name}
+                           </option>
+                        );
+                     })}
                   </select>
                   <input
+                     value={name}
+                     onChange={(e) => setName(e.target.value)}
                      className={styles.input}
                      type="text"
                      placeholder="Digite o nome do produto"
                   />
                   <input
+                     value={price}
+                     onChange={(e) => setPrice(e.target.value)}
                      className={styles.input}
                      type="text"
                      placeholder="Preço do produto"
                   />
 
                   <textarea
+                     value={description}
+                     onChange={(e) => setDescription(e.target.value)}
                      className={styles.input}
                      placeholder="Descreva seu produto..."
                   />
@@ -89,7 +167,14 @@ export default function Product() {
 }
 
 export const getServerSideProps = canSSRAuth(async (ctx) => {
+   const apliClient = setupAPIClient(ctx);
+
+   const response = await apliClient.get("/category");
+   //console.log(response.data);
+
    return {
-      props: {},
+      props: {
+         categoryList: response.data,
+      },
    };
 });
