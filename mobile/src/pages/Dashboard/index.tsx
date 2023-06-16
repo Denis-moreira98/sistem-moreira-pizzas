@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
    View,
    Text,
@@ -9,9 +9,27 @@ import {
 } from "react-native";
 
 import { AuthContext } from "../../contexts/AuthContext";
+import { useNavigation } from "@react-navigation/native";
+
+import { NativeStackNavigationProp } from "@react-navigation/native-stack";
+import { StackParamsList } from "../../routes/app.routes";
+import Order from "../Order";
 
 export default function DashBoard() {
+   const navigation =
+      useNavigation<NativeStackNavigationProp<StackParamsList>>();
+
    const { signOut } = useContext(AuthContext);
+   const [number, setNumber] = useState("");
+
+   async function openOrder() {
+      if (number === "") {
+         return;
+      }
+
+      //fazer a requisição e abrir a mesa e navegar para proxima tela
+      navigation.navigate("Order", { number: number, order_id: "" });
+   }
 
    return (
       <SafeAreaView style={styles.container}>
@@ -22,9 +40,11 @@ export default function DashBoard() {
             placeholderTextColor="#f0f0f0"
             style={styles.input}
             keyboardType="numeric"
+            value={number}
+            onChangeText={setNumber}
          />
 
-         <TouchableOpacity style={styles.button}>
+         <TouchableOpacity style={styles.button} onPress={openOrder}>
             <Text style={styles.buttonText}>Abrir mesa</Text>
          </TouchableOpacity>
       </SafeAreaView>
