@@ -13,7 +13,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import { NativeStackNavigationProp } from "@react-navigation/native-stack";
 import { StackParamsList } from "../../routes/app.routes";
-import Order from "../Order";
+import { api } from "../../services/api";
 
 export default function DashBoard() {
    const navigation =
@@ -27,8 +27,18 @@ export default function DashBoard() {
          return;
       }
 
+      const response = await api.post("/order", {
+         table: Number(number),
+      });
+
+      //console.log(response.data);
+
       //fazer a requisição e abrir a mesa e navegar para proxima tela
-      navigation.navigate("Order", { number: number, order_id: "" });
+      navigation.navigate("Order", {
+         number: number,
+         order_id: response.data.id,
+      });
+      setNumber("");
    }
 
    return (
