@@ -40,6 +40,7 @@ export default function SignIn() {
                onChangeText={setEmail}
             />
             <TextInput
+               secureTextEntry={true}
                placeholder="Digite sua senha"
                style={styles.input}
                placeholderTextColor={"#ccc"}
