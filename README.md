@@ -31,6 +31,7 @@ Esse é um sistema para pizzarias. Tem como objetivo principal facilitar o atend
 ## Tecnologias utilizadas
 
 - NodeJS: Foi utilizada a plataforma node para desenvolver o backend do projeto.
+- PostgreSQL: Banco de dados.
 - NextJS: O framework Next foi utilizado para construção de interface do usuário frontend.
 - SCSS: linguagem de estilo para estilizar a interface do usuário.
 -  React Native / Expo: Utilizados para construção do app. (versão mobile) 
