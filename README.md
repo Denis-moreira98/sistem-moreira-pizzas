@@ -37,12 +37,14 @@ Esse é um sistema para pizzarias. Tem como objetivo principal facilitar o atend
 -  React Native / Expo: Utilizados para construção do app. (versão mobile) 
 
 
-![login](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/65ed3063-5d66-46e1-9322-96232bc8d3c1)
-![novoPedido](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/cdd65512-6a42-4b03-916f-240c0a136e89)
-![mesaAberta](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/325b5b42-5c76-4660-ab6d-8b8a787c4c78)
-![mesaComItens](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/1d6967bb-af1a-4f6a-9df0-b1448fb6a473)
-![finalizandoPedido](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/de297cba-4915-4618-b480-a93e0868b37d)
-  
+![1](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/48937e48-6cdf-4e07-a18f-291359e0cf88)
+![2](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/7c93060c-4b3a-42bb-be43-36057c79cc9d)
+![3](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/ad1a1985-5065-44df-b156-e04abde60a83)
+![4](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/c3e1b4c9-da3f-42a8-a53a-289231c288ef)
+![5](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/113302d6-0e6a-450e-a004-207dfb5f80ca)
+
+
+
 
 ![cadastro](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/716fd00e-c4c2-4f3e-a19d-9664036a6b2b)
 ![login](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/e7f1d2ac-1211-4d21-9db8-53445fc5e5ee)
