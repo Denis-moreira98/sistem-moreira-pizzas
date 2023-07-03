@@ -25,7 +25,7 @@ Esse é um sistema para pizzarias. Tem como objetivo principal facilitar o atend
    - Ao concluir tudo, basta apertar em avançar que será redirecionado para aba “finalizando”.
 - Finalizando pedido: Aqui é onde o garçom confirma o pedido, e ao fazer isso, pedido será enviado para o “PAINEL” da cozinha.
 
- ### Confira na prática como funciona [aqui](https://www.youtube.com/watch?v=JSqVy1BhU6U&ab_channel=DenisMoreira).
+
 
 
 ## Tecnologias utilizadas
