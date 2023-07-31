@@ -1,4 +1,5 @@
-# Sistema para uma pizzaria (Moreira Pizzas)
+# Sistema para uma pizzaria (Moreira Pizzas) 🍕
+
 
 Esse é um sistema para pizzarias. Tem como objetivo principal facilitar o atendimento ao cliente, prezando por um atendimento mais rápido, de uma forma organizada. Facilitando também a comunicação entre os garçons e a cozinha.
 
