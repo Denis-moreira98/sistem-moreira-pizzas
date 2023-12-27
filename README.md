@@ -1,7 +1,9 @@
 # Sistema para uma pizzaria (Moreira Pizzas) 🍕
 
-
 Esse é um sistema para pizzarias. Tem como objetivo principal facilitar o atendimento ao cliente, prezando por um atendimento mais rápido, de uma forma organizada. Facilitando também a comunicação entre os garçons e a cozinha.
+
+![Group 2](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/29b51938-dc42-4bb2-96ff-e5bf7abd7a0d)
+
 
 ## Funcionalidades do website
 
