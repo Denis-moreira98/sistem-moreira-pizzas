@@ -7,7 +7,7 @@ import { AuthContext } from "@/contexts/AuthContext";
 import { useContext } from "react";
 
 export function Header() {
-   const { signOut } = useContext(AuthContext);
+   const { signOut, user } = useContext(AuthContext);
 
    return (
       <header className={styles.headerContainer}>
@@ -15,7 +15,6 @@ export function Header() {
             <Link href={"/dashboard"}>
                <img src="/logo.svg" width={190} height={80} />
             </Link>
-
             <nav className={styles.menuNav}>
                <Link legacyBehavior href={"/category"}>
                   <a>Categoria</a>
@@ -23,7 +22,8 @@ export function Header() {
                <Link legacyBehavior href={"/product"}>
                   <a>Cardapio</a>
                </Link>
-
+               <span>|</span>
+               <p className={styles.name_user}>Olá, {user?.name}</p>
                <button onClick={signOut}>
                   <FiLogOut color="#FFF" size={28} />
                </button>
