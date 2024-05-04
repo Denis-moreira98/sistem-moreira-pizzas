@@ -1,5 +1,5 @@
 import Modal from "react-modal";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 import { FiX } from "react-icons/fi";
 
 import { OrderItemProps } from "../../pages/dashboard/";

@@ -1,6 +1,6 @@
 import { InputHTMLAttributes, TextareaHTMLAttributes } from "react";
 
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {}
 
