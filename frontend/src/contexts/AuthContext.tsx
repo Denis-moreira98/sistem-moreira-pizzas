@@ -51,13 +51,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
    useEffect(() => {
       //TENTAR PEGAR ALGO DO TOKEN NO COOKIES
-
       const { "@nextauth.token": token } = parseCookies();
       if (token) {
          api.get("/me")
             .then((Response) => {
                const { id, name, email } = Response.data;
-
                setUser({
                   id,
                   name,
@@ -78,12 +76,11 @@ export function AuthProvider({ children }: AuthProviderProps) {
             email,
             password,
          });
-
          const { id, name, token } = response.data;
 
          setCookie(undefined, "@nextauth.token", token, {
-            maxAgr: 60 * 60 * 24 * 30, // expira em 1 mês
-            path: "/", //Quais caminhos terão acesso ao cookies
+            maxAge: 60 * 60 * 24 * 30, // expira em 1 mês
+            path: "/", // Quais caminhos terão acesso ao cookies
          });
 
          setUser({
@@ -91,16 +88,14 @@ export function AuthProvider({ children }: AuthProviderProps) {
             name,
             email,
          });
-         //Passar para proximas requisições o token
+
          api.defaults.headers["Authorization"] = `Bearer ${token}`;
 
          toast.success("Logado com sucesso!");
-
-         //Redidecionar o user para /dashboard
          Router.push("/dashboard");
       } catch (err) {
          toast.error("Digite seu email e senha corretamente!");
-         console.log("ERRO AO LOGAR!");
+         console.error("Erro ao logar:", err);
       }
    }
 
@@ -112,12 +107,29 @@ export function AuthProvider({ children }: AuthProviderProps) {
             password,
          });
 
-         toast.success("Conta criada com sucesso!");
+         const { id, token } = response.data;
 
-         Router.push("/");
+         // Configuração do cookie
+         const cookieOptions = {
+            maxAge: 60 * 60 * 24 * 30, // expira em 1 mês
+            path: "/", // Quais caminhos terão acesso ao cookies
+         };
+
+         setCookie(undefined, "@nextauth.token", token, cookieOptions);
+
+         setUser({
+            id,
+            name,
+            email,
+         });
+
+         api.defaults.headers["Authorization"] = `Bearer ${token}`;
+
+         toast.success("Conta criada com sucesso!");
+         Router.push("/dashboard");
       } catch (err) {
-         toast.error("Erro ao Cadastrar!");
-         console.log("erro ao deslogar");
+         toast.error("Erro ao cadastrar!");
+         console.error("Erro ao cadastrar:", err);
       }
    }
 
