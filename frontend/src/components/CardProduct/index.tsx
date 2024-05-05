@@ -1,4 +1,6 @@
+import { setupAPIClient } from "@/services/api";
 import styles from "./styles.module.scss";
+import { useRouter } from "next/navigation";
 
 interface ProductPros {
    id: string;
@@ -15,8 +17,16 @@ export function CardProduct({
    price,
    banner,
 }: ProductPros) {
+   const router = useRouter();
+
    async function handleDelete(id) {
-      alert(`Deletado: ${id}`);
+      try {
+         const api = setupAPIClient();
+         api.delete(`/product/?product_id=${id}`);
+         router.push("/menu");
+      } catch (error) {
+         console.log(error);
+      }
    }
 
    return (
