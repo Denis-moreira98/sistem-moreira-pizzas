@@ -8,7 +8,7 @@ export function setupAPIClient(ctx = undefined) {
    let cookies = parseCookies(ctx);
 
    const api = axios.create({
-      baseURL: "http://localhost:3333",
+      baseURL: "http://localhost:8080",
       headers: {
          Authorization: `Bearer ${cookies["@nextauth.token"]}`,
       },
