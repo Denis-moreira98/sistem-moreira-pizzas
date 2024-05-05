@@ -17,8 +17,6 @@ type OrdersProps = {
    status: boolean;
    draft: boolean;
    name: string | null;
-   //coloquei o map como any para resolver esse problema no type script
-   //Property 'map' does not exist on type 'any[] | OrdersProps'.
    map: any;
    length: any;
 };
@@ -138,7 +136,6 @@ export const getServerSideProps = canSSRAuth(async (ctx) => {
 
    const response = await apiCliente.get("/orders");
 
-   // console.log(response.data);
    return {
       props: {
          orders: response.data,

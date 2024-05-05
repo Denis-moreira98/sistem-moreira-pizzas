@@ -12,8 +12,6 @@ import { toast } from "react-toastify";
 
 import Link from "next/link";
 
-import { GetServerSideProps } from "next";
-
 import { canSSRGuest } from "../utils/canSSRGuest";
 
 export default function Home() {
