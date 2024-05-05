@@ -2,14 +2,24 @@ import Head from "next/head";
 import { Header } from "@/components/Header";
 import styles from "./styles.module.scss";
 import { useState, FormEvent } from "react";
-
 import { setupAPIClient } from "../../services/api";
-import { toast } from "react-toastify";
-
 import { canSSRAuth } from "../../utils/canSSRAuth";
+import { CardCategory } from "@/components/CardCategory";
+import { useRouter } from "next/navigation";
 
-export default function Category() {
+type ItemProps = {
+   id: string;
+   name: string;
+};
+
+interface categoryProps {
+   categoryList: ItemProps[];
+}
+
+export default function Category({ categoryList }: categoryProps) {
    const [name, setName] = useState("");
+   const [categories, setCategories] = useState(categoryList || []);
+   const router = useRouter();
 
    async function handleRegister(event: FormEvent) {
       event.preventDefault();
@@ -17,13 +27,13 @@ export default function Category() {
       if (name === "") {
          return;
       }
+
       const apiClient = setupAPIClient();
       await apiClient.post("/category", {
          name: name,
       });
-
-      toast.success("Categoria cadastrada com sucesso");
       setName("");
+      router.refresh();
    }
 
    return (
@@ -49,6 +59,14 @@ export default function Category() {
                      Cadastrar
                   </button>
                </form>
+
+               {categories.map((category) => (
+                  <CardCategory
+                     key={category.id}
+                     name={category.name}
+                     id={category.id}
+                  />
+               ))}
             </main>
          </div>
       </>
@@ -56,7 +74,13 @@ export default function Category() {
 }
 
 export const getServerSideProps = canSSRAuth(async (ctx) => {
+   const apiClient = setupAPIClient(ctx);
+
+   const response = await apiClient.get("/category");
+
    return {
-      props: {},
+      props: {
+         categoryList: response.data,
+      },
    };
 });
