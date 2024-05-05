@@ -1,5 +1,5 @@
 .container {
-   max-width: 720px;
+   max-width: 1050px;
    margin: 4em auto;
    padding: 0 2rem;
 
@@ -14,8 +14,17 @@
 
 .form {
    display: flex;
-   flex-direction: column;
+   flex-direction: row;
    margin: 1rem 0;
+
+   gap: 0.5rem;
+
+   input {
+      width: 80%;
+   }
+   button {
+      width: 21%;
+   }
 }
 
 .input {
@@ -34,7 +43,7 @@
    height: 40px;
    border: 0;
    border-radius: 0.3rem;
-   font-size: 1.2rem;
+   font-size: 1.1rem;
    color: var(--dark-700);
    font-weight: bold;
 }
