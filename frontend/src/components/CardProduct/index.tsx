@@ -1,6 +1,7 @@
 import { setupAPIClient } from "@/services/api";
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 interface ProductPros {
    id: string;
@@ -32,12 +33,20 @@ export function CardProduct({
    return (
       <div className={styles.card}>
          <div className={styles.img}>
-            <img src={`${process.env.BASE_URL_IMG}/${banner}`} alt={name} />
+            <Image
+               src={`http://localhost:8080/files/${banner}`}
+               alt={name}
+               width={100}
+               height={100}
+               quality={100}
+            />
          </div>
          <div className={styles.info}>
             <h2>{name}</h2>
             <p>{description}</p>
-            <span>Preço: R${price}</span>
+
+            <span>R${price}</span>
+
             <div className={styles.buttons}>
                <button>Editar</button>
                <button onClick={() => handleDelete(id)}>Excluir</button>
