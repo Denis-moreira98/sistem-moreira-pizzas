@@ -19,9 +19,10 @@ export function Header() {
                <Link legacyBehavior href={"/category"}>
                   <a>Categoria</a>
                </Link>
-               <Link legacyBehavior href={"/product"}>
+               <Link legacyBehavior href={"/menu"}>
                   <a>Cardapio</a>
                </Link>
+
                <span>|</span>
                <p className={styles.name_user}>Olá, {user?.name}</p>
                <button onClick={signOut}>
