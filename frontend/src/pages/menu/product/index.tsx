@@ -3,11 +3,11 @@ import Head from "next/head";
 import styles from "./styles.module.scss";
 import { Header } from "@/components/Header";
 
-import { canSSRAuth } from "../../utils/canSSRAuth";
+import { canSSRAuth } from "@/utils/canSSRAuth";
 
 import { FiUpload } from "react-icons/fi";
 
-import { setupAPIClient } from "../../services/api";
+import { setupAPIClient } from "../../../services/api";
 
 import { toast } from "react-toastify";
 

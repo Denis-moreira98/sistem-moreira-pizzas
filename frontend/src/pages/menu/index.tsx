@@ -39,7 +39,7 @@ export default function Menu({ categoryList }: CategoryProps) {
                <h1>Meus produtos</h1>
                <button
                   className={styles.button}
-                  onClick={() => router.push("/product")}
+                  onClick={() => router.push("/menu/product")}
                >
                   Novo Produto
                </button>
