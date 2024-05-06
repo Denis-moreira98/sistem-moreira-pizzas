@@ -20,7 +20,6 @@
       font-size: 2rem;
    }
 }
-
 .button {
    background-color: var(--green-900);
    height: 40px;
@@ -30,6 +29,18 @@
    color: var(--dark-700);
    font-weight: bold;
    padding: 6px;
+}
+.category {
+   font-size: 20px;
+   margin: 20px 0 16px 0;
+   color: white;
+   background-color: var(--dark-900);
+   text-align: center;
+   padding: 5px;
+   width: 155px;
+   border-radius: 4px;
+   box-shadow: rgba(59, 77, 64, 0.12) 0px 2px 5px 0px,
+      rgba(85, 255, 190, 0.329) 0px 2px 8px 0px;
 }
 .grid_cards {
    display: grid;
