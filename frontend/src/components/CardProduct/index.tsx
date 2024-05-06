@@ -2,31 +2,30 @@ import { setupAPIClient } from "@/services/api";
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import { toast } from "react-toastify";
 
-interface ProductPros {
+type ProductPros = {
    id: string;
    name: string;
    description: string;
    price: string;
    banner: string;
+};
+interface ProductList {
+   products: ProductPros;
 }
 
-export function CardProduct({
-   id,
-   name,
-   description,
-   price,
-   banner,
-}: ProductPros) {
+export function CardProduct({ products }: ProductList) {
    const router = useRouter();
 
    async function handleDelete(id) {
       try {
          const apiClient = setupAPIClient();
-         apiClient.delete(`/product/?product_id=${id}`);
-         router.push("/menu");
-         toast.success("Excluído com sucesso!");
+         await apiClient.delete(`/product`, {
+            params: {
+               product_id: id,
+            },
+         });
+         router.refresh();
       } catch (error) {
          console.log(error);
       }
@@ -36,24 +35,26 @@ export function CardProduct({
       <div className={styles.card}>
          <div className={styles.img}>
             <Image
-               src={`http://localhost:8080/files/${banner}`}
-               alt={name}
+               src={`http://localhost:8080/files/${products.banner}`}
+               alt={products.name}
                width={100}
                height={100}
                quality={100}
             />
          </div>
          <div className={styles.info}>
-            <h2>{name}</h2>
-            <p>{description}</p>
+            <h2>{products.name}</h2>
+            <p>{products.description}</p>
 
-            <span>R${price}</span>
+            <span>R${products.price}</span>
 
             <div className={styles.buttons}>
-               <button onClick={() => router.push(`/menu/edit/${id}`)}>
+               <button onClick={() => router.push(`/menu/edit/${products.id}`)}>
                   Editar
                </button>
-               <button onClick={() => handleDelete(id)}>Excluir</button>
+               <button onClick={() => handleDelete(products.id)}>
+                  Excluir
+               </button>
             </div>
          </div>
       </div>

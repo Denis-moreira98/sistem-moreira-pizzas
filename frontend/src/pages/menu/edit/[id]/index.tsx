@@ -83,7 +83,11 @@ export default function EditProduct({ categoryList }: EditProductProps) {
          data.append("category_id", categorySelected);
          data.append("file", imageAvatar);
          const apiClient = setupAPIClient();
-         await apiClient.patch(`/product/edit?product_id=${id}`, data);
+         await apiClient.patch(`/product/edit`, data, {
+            params: {
+               product_id: id,
+            },
+         });
 
          toast.success("Editado com sucesso!");
          router.push("/menu");

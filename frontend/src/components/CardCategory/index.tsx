@@ -14,7 +14,11 @@ export function CardCategory({ id, name }: categoryProps) {
    async function handleDelete(id) {
       try {
          const api = setupAPIClient();
-         await api.delete(`/category?category_id=${id}`);
+         await api.delete("/category", {
+            params: {
+               category_id: id,
+            },
+         });
          router.refresh();
       } catch (error) {
          console.log(error);
