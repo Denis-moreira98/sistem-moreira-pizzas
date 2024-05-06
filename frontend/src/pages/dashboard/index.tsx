@@ -11,6 +11,8 @@ import Modal from "react-modal";
 
 import { ModalOrder } from "../../components/ModalOrder";
 
+import { calculateTotalPrice } from "../../utils/calculateTotalPrice";
+
 type OrdersProps = {
    id: string;
    table: string | number;
@@ -124,6 +126,7 @@ export default function Dashboard({ orders }: HomeProps) {
                   onRequestClose={handleCloseModal}
                   order={modalItem}
                   handleFinishOrder={handleFinishItem}
+                  calculateTotalPrice={calculateTotalPrice}
                />
             )}
          </div>

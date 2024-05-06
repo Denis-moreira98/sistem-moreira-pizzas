@@ -9,6 +9,7 @@ interface ModalOrderProps {
    onRequestClose: () => void;
    order: OrderItemProps[];
    handleFinishOrder: (id: string) => void;
+   calculateTotalPrice: (orderItems: OrderItemProps[]) => string;
 }
 
 export function ModalOrder({
@@ -16,6 +17,7 @@ export function ModalOrder({
    onRequestClose,
    order,
    handleFinishOrder,
+   calculateTotalPrice,
 }: ModalOrderProps) {
    const customStyles = {
       content: {
@@ -28,6 +30,8 @@ export function ModalOrder({
          backgroundColor: "#1d1d2e",
       },
    };
+
+   const totalPrice = calculateTotalPrice(order);
 
    return (
       <Modal
@@ -53,13 +57,29 @@ export function ModalOrder({
             {order.map((item) => (
                <section key={item.id} className={styles.containerItem}>
                   <span>
-                     {item.amount} - <strong>{item.product.name}</strong>
+                     {item.amount} - <strong>{item.product.name}</strong> {""} -{" "}
+                     {""}
+                     <span className={styles.price}>
+                        {(
+                           parseFloat(item.product.price) * item.amount
+                        ).toLocaleString("pt-BR", {
+                           style: "currency",
+                           currency: "BRL",
+                        })}
+                     </span>
                   </span>
+
                   <span className={styles.description}>
                      {item.product.description}
                   </span>
                </section>
             ))}
+            <div className={styles.linha}></div>
+            <div className={styles.totalprice}>
+               <h2>
+                  Total: <span className={styles.price}>{totalPrice}</span>
+               </h2>
+            </div>
             <button
                onClick={() => handleFinishOrder(order[0].order_id)}
                className={styles.buttonOrder}
