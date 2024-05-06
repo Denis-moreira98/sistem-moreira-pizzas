@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { CardProduct } from "@/components/CardProduct";
 import { setupAPIClient } from "@/services/api";
 
-type ProductItem = {
+type ProductProps = {
    id: string;
    name: string;
    price: string;
@@ -14,12 +14,19 @@ type ProductItem = {
    banner: string;
 };
 
-interface ProductProps {
-   productList: ProductItem[];
+type CategoryItem = {
+   id: string;
+   name: string;
+   products: ProductProps[];
+};
+
+interface CategoryProps {
+   categoryList: CategoryItem[];
 }
 
-export default function Menu({ productList }: ProductProps) {
+export default function Menu({ categoryList }: CategoryProps) {
    const router = useRouter();
+
    return (
       <>
          <Header />
@@ -37,18 +44,23 @@ export default function Menu({ productList }: ProductProps) {
                   Novo Produto
                </button>
             </main>
-            <div className={styles.grid_cards}>
-               {productList.map((product) => (
-                  <CardProduct
-                     key={product.id}
-                     id={product.id}
-                     name={product.name}
-                     description={product.description}
-                     price={product.price}
-                     banner={product.banner}
-                  />
-               ))}
-            </div>
+
+            {categoryList.map(
+               (category) =>
+                  category.products.length > 0 && (
+                     <div key={category.id}>
+                        <h1 className={styles.category}>{category.name}</h1>
+                        <div className={styles.grid_cards}>
+                           {category.products.map((product) => (
+                              <CardProduct
+                                 key={product.id}
+                                 products={product}
+                              />
+                           ))}
+                        </div>
+                     </div>
+                  )
+            )}
          </section>
       </>
    );
@@ -57,12 +69,11 @@ export default function Menu({ productList }: ProductProps) {
 export const getServerSideProps = canSSRAuth(async (ctx) => {
    const apiClient = setupAPIClient(ctx);
 
-   const response = await apiClient.get("/products");
-   // console.log(response.data);
+   const response = await apiClient.get("/category");
 
    return {
       props: {
-         productList: response.data,
+         categoryList: response.data,
       },
    };
 });
