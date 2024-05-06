@@ -1,6 +1,6 @@
 import { useState, ChangeEvent, FormEvent } from "react";
 import Head from "next/head";
-import styles from "./style.module.scss";
+import styles from "./styles.module.scss";
 import { Header } from "@/components/Header";
 
 import { canSSRAuth } from "../../utils/canSSRAuth";
@@ -10,6 +10,8 @@ import { FiUpload } from "react-icons/fi";
 import { setupAPIClient } from "../../services/api";
 
 import { toast } from "react-toastify";
+
+import { useRouter } from "next/navigation";
 
 type ItemProps = {
    id: string;
@@ -30,6 +32,8 @@ export default function Product({ categoryList }: categoryProps) {
 
    const [categories, setCategories] = useState(categoryList || []);
    const [categorySelected, setCategorySelected] = useState("");
+
+   const router = useRouter();
 
    function handleFile(e: ChangeEvent<HTMLInputElement>) {
       if (!e.target.files) {
@@ -77,16 +81,11 @@ export default function Product({ categoryList }: categoryProps) {
          await apiClient.post("/product", data);
 
          toast.success("Cadastrado com sucesso!");
+         router.push("/menu");
       } catch (err) {
          console.log(err);
          toast.error("Ops, erro ao cadastrar");
       }
-      setName("");
-      setPrice("");
-      setDescription("");
-      setImageAvatar("");
-      setImageAvatar(null);
-      setAvatarUrl("");
    }
 
    return (

@@ -2,6 +2,7 @@ import { setupAPIClient } from "@/services/api";
 import styles from "./styles.module.scss";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { toast } from "react-toastify";
 
 interface ProductPros {
    id: string;
@@ -22,9 +23,10 @@ export function CardProduct({
 
    async function handleDelete(id) {
       try {
-         const api = setupAPIClient();
-         api.delete(`/product/?product_id=${id}`);
+         const apiClient = setupAPIClient();
+         apiClient.delete(`/product/?product_id=${id}`);
          router.push("/menu");
+         toast.success("Excluído com sucesso!");
       } catch (error) {
          console.log(error);
       }
@@ -48,7 +50,9 @@ export function CardProduct({
             <span>R${price}</span>
 
             <div className={styles.buttons}>
-               <button>Editar</button>
+               <button onClick={() => router.push(`/menu/edit/${id}`)}>
+                  Editar
+               </button>
                <button onClick={() => handleDelete(id)}>Excluir</button>
             </div>
          </div>
