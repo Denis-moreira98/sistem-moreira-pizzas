@@ -6,6 +6,7 @@ import { setupAPIClient } from "../../services/api";
 import { canSSRAuth } from "../../utils/canSSRAuth";
 import { CardCategory } from "@/components/CardCategory";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 type ItemProps = {
    id: string;
@@ -25,6 +26,7 @@ export default function Category({ categoryList }: categoryProps) {
       event.preventDefault();
 
       if (name === "") {
+         toast.warning("Digite um nome para categoria");
          return;
       }
 

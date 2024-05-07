@@ -2,6 +2,7 @@ import { canSSRAuth } from "@/utils/canSSRAuth";
 import styles from "./styles.module.scss";
 import { setupAPIClient } from "@/services/api";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 interface categoryProps {
    id: string;
@@ -21,6 +22,9 @@ export function CardCategory({ id, name }: categoryProps) {
          });
          router.refresh();
       } catch (error) {
+         toast.error(
+            "Não é possível remover categoria que tem produtos associados"
+         );
          console.log(error);
       }
    }
