@@ -86,8 +86,6 @@ export default function Dashboard({ orders }: HomeProps) {
       SetOrderList(response.data);
    }
 
-   Modal.setAppElement("#__next");
-
    return (
       <>
          <Head>
