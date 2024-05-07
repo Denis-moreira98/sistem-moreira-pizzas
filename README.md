@@ -1,47 +1,48 @@
 # Sistema de pedidos para pizzaria (Moreira Pizzas) 🍕
 
-Esse é um sistema para pizzarias. Tem como objetivo principal facilitar o atendimento ao cliente, prezando por um atendimento mais rápido, de uma forma organizada. Facilitando também a comunicação entre os garçons e a cozinha.
+Este sistema foi desenvolvido especialmente para pizzarias, com o propósito principal de otimizar o atendimento ao cliente. Focando em agilidade e organização, busca proporcionar uma experiência mais ágil e eficiente, enquanto facilita a comunicação entre os garçons e a cozinha.
 
 ## Apresentação do Projeto
 
-[![Moreira Pizzas](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/0435dc3f-64ea-4e54-ac8d-34f028fbf8ae)](https://www.youtube.com/watch?v=JSqVy1BhU6U&ab_channel=DenisMoreira)
-
-
-
+[![Moreira Pizzas](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/0435dc3f-64ea-4e54-ac8d-34f028fbf8ae)](https://www.youtube.com/watch?v=08vw_p-_Ph4&ab_channel=DenisMoreira)
 
 ## Funcionalidades do website
 
 ### O website foi feito para utilizar na cozinha ou no setor administrativo.
 
--  Cadastrar novos usuários: É possível realizar cadastro de novos usúarios (funcionários).
--  login: Apenas usúarios logados terão acesso as outras funcionalidades.
--  Painel: A página /dasboard (painel) será utilizada na cozinha, mostrando em tempo real os pedidos que não estão em rascunho. Os pedidos levam a numeração da mesa, e ao clicar abrirá um modal mostrando os itens do pedido. Ao concluir o pedido, é possível encerrar no modal, fazendo então a order sair do painel.
--  Cadastrar novas categorias: Na página /category é possível cadastrar novas categorias de produtos, por exemplo: “Sobremesas”.
-- Cadastrar novos produtos: Na página /product é possível cadastrar novos produtos, mas é necessário preencher alguns campos. Como: enviar uma foto do produto, selecionar a categoria que ele pertence, nome, preço e descrição.
+-  Cadastro de Novos Usuários: Permite o cadastro de novos usuários, especialmente funcionários.
+-  Login: Acesso exclusivo para usuários registrados, garantindo segurança e controle de acesso.
+-  Visualização de Pedidos em Tempo Real: O painel exibe os pedidos em andamento na cozinha, apresentando-os de forma clara e organizada. Cada pedido é associado a uma mesa e, ao ser clicado, abre um modal detalhando os itens solicitados. Ao finalizar o pedido, é possível encerrá-lo no modal, removendo-o do painel.
+-  Cadastro e Remoção de Categorias: Permite adicionar ou remover categorias de produtos conforme necessário. Por exemplo, é possível incluir a categoria "Sobremesas" para melhor organização do cardápio.
+-  Visualização do Cardápio: Oferece acesso a todos os produtos disponíveis, organizados por categorias. Além disso, fornece opções para editar, excluir e gerenciar produtos.
+   - Cadastro de Novos Produtos: Facilita a inclusão de novos produtos, exigindo o preenchimento de campos essenciais, como nome, preço, descrição e envio de foto. É necessário também selecionar a categoria correspondente.
+   - Edição de Produtos: Permite a atualização de todas as informações relacionadas a um produto.
+   - Remoção de Produtos: Permite remover produtos do cardápio, desde que não haja pedidos em aberto associados a eles.
 
 ## Funcionalidades do mobile
 
-### O app foi planejado para os garçons utilizarem.
+### O aplicativo foi projetado para facilitar o trabalho dos garçons, oferecendo as seguintes funcionalidades:
 
--  login: Apenas usuários logados terão acesso as outras funcionalidades.
-- Abrir um novo pedido: É possível abrir um novo pedido, basta apenas informar o número da mesa. 
-- Funcionalidades da MESA (Cancelar pedido, adicionar/remover itens e avançar): 
-   - Caso o cliente tenha desistido de pedir algo é possível cancelar o pedido apertando na lixeira que fica ao lado do número da mesa (desde que não tenha itens no pedido);
-   - Você pode adicionar itens a mesa, basta apenas selecionar a categoria e escolher o produto e quantidade, apertando no botão “+”;
-   - Para remover itens do pedido, basta aperta na lixeira que fica ao lado do item adicionado.
-   - Ao concluir tudo, basta apertar em avançar que será redirecionado para aba “finalizando”.
-- Finalizando pedido: Aqui é onde o garçom confirma o pedido, e ao fazer isso, pedido será enviado para o “PAINEL” da cozinha.
+-  Login: Acesso exclusivo para usuários autenticados, garantindo segurança e controle de acesso.
+- Abertura de Novos Pedidos: Permite iniciar um novo pedido simplesmente informando o número da mesa. 
+-Funcionalidades da Mesa: Oferece diversas opções para gerenciar os pedidos associados a uma mesa, incluindo:
+   - Cancelar Pedido: Possibilidade de cancelar um pedido pressionando o ícone de lixeira ao lado do número da mesa (desde que não haja itens no pedido).
+   - Adicionar/Remover Itens: Permite adicionar novos itens ao pedido selecionando a categoria e escolhendo o produto e quantidade desejados, através do botão "+".
+   - Remoção de Itens: Facilidade para remover itens do pedido, bastando pressionar o ícone de lixeira ao lado do item desejado.
+   - Avançar: Ao concluir as ações na mesa, o usuário pode avançar para a próxima etapa pressionando o botão "Avançar", que o direcionará para a aba de finalização do pedido.
+   - Finalização do Pedido: Na aba de finalização do pedido, o garçom pode revisar e confirmar o pedido. Ao fazer isso, o pedido é automaticamente enviado para o painel da cozinha, agilizando o processo de preparação.
 
-### Confira na prática como funciona [aqui](https://www.youtube.com/watch?v=JSqVy1BhU6U&ab_channel=DenisMoreira).
+### Confira na prática como funciona [aqui](https://www.youtube.com/watch?v=08vw_p-_Ph4&ab_channel=DenisMoreira).
 
+## Repositorio do [Backend](https://github.com/Denis-moreira98/api-pizzaria).
 
 ## Tecnologias utilizadas
 
-- NodeJS: Foi utilizada a plataforma node para desenvolver o backend do projeto.
-- PostgreSQL: Banco de dados.
-- NextJS: O framework Next foi utilizado para construção de interface do usuário frontend.
-- SASS: linguagem de estilo para estilizar a interface do usuário.
--  React Native / Expo: Utilizados para construção do app. (versão mobile) 
+- Node.js com Express: Utilizado como plataforma para o desenvolvimento do backend, o Node.js proporciona uma base sólida e escalável para a lógica de negócios e a gestão das requisições HTTP.
+- PostgreSQL com Prisma: Como sistema de gerenciamento de banco de dados, o PostgreSQL em conjunto com o Prisma oferece uma solução confiável e poderosa para armazenamento e manipulação de dados.
+- Next.js com TypeScript: O framework Next.js, combinado com TypeScript, foi escolhido para a construção da interface do usuário no frontend. Essa combinação proporciona um desenvolvimento ágil e robusto, com suporte para tipagem estática e renderização do lado do servidor (SSR).
+- SASS e Styled-Components: Ambas as tecnologias foram utilizadas para estilizar a interface do usuário, tanto na versão web quanto na versão mobile. O SASS oferece uma sintaxe poderosa e organizada para a criação de estilos, enquanto o Styled-Components fornece uma abordagem moderna e modular para a estilização de componentes.
+- React Native com Expo: Para o desenvolvimento da versão mobile do aplicativo, optou-se por utilizar o React Native em conjunto com o Expo. Essas tecnologias permitem criar aplicativos móveis nativos de forma eficiente, compartilhando grande parte do código entre plataformas iOS e Android. 
 
 <hr>
 
@@ -56,11 +57,14 @@ Esse é um sistema para pizzarias. Tem como objetivo principal facilitar o atend
 
 ![cadastro](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/7cea8cc4-72ec-4b7c-8b58-03ccc05728d5)
 ![login](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/9cc550e1-5178-4bb3-9ab2-c83177708ffa)
-![dashboard](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/65616d19-16d2-4d7f-b485-195f91ce26ef)
-![cadastro de novas categorias](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/a3b0c96b-60b2-4fc4-94e8-b51032c7aed8)
-![cadastro de produtos](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/bc2d4f45-ff3f-475b-a80d-107ba88478c2)
-![pedidos em andamento](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/c52a8ad8-b26a-4644-8fc1-a7691dea122e)
-![detalhes do pedido](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/b977230c-7bf6-4c6c-8bff-f2254b7caeff)
+![Captura de Tela (290)](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/d6617818-844c-4193-b04e-a1305b714f59)
+![Captura de Tela (287)](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/e4e5057a-15f4-4857-a891-31663fd88b6b)
+![Captura de Tela (284)](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/16ba6746-10a1-4e99-a0aa-c8e92294090c)
+![Captura de Tela (285)](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/384c3902-ea0e-4d0a-aaf8-2f2e099361cc)
+![Captura de Tela (286)](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/1168c122-60eb-4bd3-8623-d323e3ffdd6e)
+![Captura de Tela (290)](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/d6617818-844c-4193-b04e-a1305b714f59)
+![Captura de Tela (289)](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/11804cf2-1baf-463b-852e-ddf1e0c05f1a)
+
 
 
 
