@@ -1,4 +1,11 @@
-# Sistema de pedidos para pizzaria (Moreira Pizzas) 🍕
+<div align="center">
+  
+![logo](https://github.com/Denis-moreira98/api-pizzaria/assets/72985107/68e4a1f0-c155-405a-b68a-f1e6a5636e4b)
+
+# Sistema de gerenciamento de pedido para pizzaria 🍕
+</div>
+
+
 
 Este sistema foi desenvolvido especialmente para pizzarias, com o propósito principal de otimizar o atendimento ao cliente. Focando em agilidade e organização, busca proporcionar uma experiência mais ágil e eficiente, enquanto facilita a comunicação entre os garçons e a cozinha.
 
