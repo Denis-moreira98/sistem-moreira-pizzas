@@ -2,6 +2,8 @@
 
 Este sistema foi desenvolvido especialmente para pizzarias, com o propósito principal de otimizar o atendimento ao cliente. Focando em agilidade e organização, busca proporcionar uma experiência mais ágil e eficiente, enquanto facilita a comunicação entre os garçons e a cozinha.
 
+### Repositorio do [Backend](https://github.com/Denis-moreira98/api-pizzaria).
+
 ## Apresentação do Projeto
 
 [![Moreira Pizzas](https://github.com/Denis-moreira98/sistem-moreira-pizzas/assets/72985107/0435dc3f-64ea-4e54-ac8d-34f028fbf8ae)](https://www.youtube.com/watch?v=08vw_p-_Ph4&ab_channel=DenisMoreira)
@@ -34,7 +36,6 @@ Este sistema foi desenvolvido especialmente para pizzarias, com o propósito pri
 
 ### Confira na prática como funciona [aqui](https://www.youtube.com/watch?v=08vw_p-_Ph4&ab_channel=DenisMoreira).
 
-## Repositorio do [Backend](https://github.com/Denis-moreira98/api-pizzaria).
 
 ## Tecnologias utilizadas
 
